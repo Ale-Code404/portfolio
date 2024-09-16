@@ -25,6 +25,6 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        run: railway up
+        run: railway up --service nginx
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEPLOY }}
