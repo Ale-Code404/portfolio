@@ -1,16 +1,14 @@
 ---
-
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/common/Section.astro";
+import Summary from "@components/portoflio/Summary.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Summary />
+
+  <Section
+    title="Proyectos"
+    description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto."
+  />
+</Layout>

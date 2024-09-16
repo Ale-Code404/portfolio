@@ -1,0 +1,16 @@
+---
+interface Props {
+    company: string;
+    position: string;
+    dates: {
+        start: string;
+        end: string;
+    }
+    description: string;
+    challenges: Array<string>;
+    stack: Array<string>;
+}
+
+// All props are required
+const { company, position, dates, description, challenges, stack } = Astro.props;
+---
