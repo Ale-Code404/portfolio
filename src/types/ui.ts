@@ -1,0 +1,11 @@
+export interface Experience {
+  company: string;
+  position: string;
+  dates: {
+    start: string;
+    end: string;
+  };
+  description: string;
+  challenges: Array<string>;
+  stack: Array<string>;
+}

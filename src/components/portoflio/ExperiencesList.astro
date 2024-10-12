@@ -1,0 +1,33 @@
+---
+import Experience from "./Experience.astro";
+
+interface Props {
+  experiencies: Array<any>;
+}
+
+const { experiencies }: Props = Astro.props;
+---
+
+<ul class="space-y-8">
+  {
+    experiencies.map((experiencie, index) => (
+      <li class="flex gap-6">
+        <div class="flex flex-col gap-4 items-center">
+          <span class="flex items-center justify-center w-12 h-12 rounded-full font-bold text-xl bg-gray-200 dark:bg-gray-800">
+            {/* Count back from the last one */}
+            {experiencies.length - index}
+          </span>
+          <div class="w-1 flex-grow border-l-2 border-dotted" />
+        </div>
+        <Experience
+          company={experiencie.company}
+          position={experiencie.position}
+          dates={experiencie.dates}
+          description={experiencie.description}
+          challenges={experiencie.challenges}
+          stack={experiencie.stack}
+        />
+      </li>
+    ))
+  }
+</ul>

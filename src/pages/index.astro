@@ -1,15 +1,50 @@
 ---
 import Layout from "@layouts/Layout.astro";
-// import Section from "@components/common/Section.astro";
+import Section from "@components/common/Section.astro";
 import Summary from "@components/portoflio/Summary.astro";
+
+import ProjectCard from "@components/projects/ProjectCard.astro";
+import Badge from "@components/common/Badge.astro";
+
+import projects from "@data/projects.json";
+import experiencies from "@data/experiencies.json";
+import ExperiencesList from "@components/portoflio/ExperiencesList.astro";
+// Get all unique stacks from projects
+const usedStack = Array.from(
+  new Set(projects.map((project) => project.stack).flat())
+);
 ---
 
 <Layout>
   <Summary />
 
-  <!-- In construction -->
-  <!-- <Section
+  <!-- Proyects section -->
+  <Section
     title="Proyectos"
-    description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto."
-  /> -->
+    description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto.">
+    <h3 class="text-xl pb-4">Tecnologias</h3>
+    <div class="flex flex-wrap gap-4 text-sm pb-8">
+      {usedStack.map((stack) => <Badge title={stack} />)}
+    </div>
+    <!-- Projects cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            codename={project.codename}
+            description={project.description}
+            actions={project.actions}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Experience section -->
+  <Section
+    title="Experiencia"
+    description="He tenido un par de trabajos en estos años, aqui puedes ver lo que he logrado y los retos a los que me enfrenté.">
+    <ExperiencesList experiencies={experiencies} />
+  </Section>
 </Layout>

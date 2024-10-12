@@ -1,7 +1,45 @@
 ---
+import Image from "astro/components/Image.astro";
+
 interface Props {
   title: string;
   codename: string;
   description: string;
+  actions: Array<{ title: string; url: string; button_style: string }>;
 }
+
+const { title, codename, description, actions = [] }: Props = Astro.props;
 ---
+
+<article class="flex flex-col rounded-md h-full bg-gray-100 dark:bg-gray-800">
+  <Image
+    src="https://placehold.co/500x300"
+    width={500}
+    height={300}
+    alt={`banner project ${title}`}
+    class="w-full object-cover"
+  />
+  <header class="p-4">
+    <h4 class="text-xl">{title}</h4>
+    <small> {codename} </small>
+  </header>
+  <div class="flex flex-col flex-grow gap-2 px-4 pb-4">
+    <p class="flex-grow text-sm">
+      {description}
+    </p>
+    <div class="flex gap-4 pt-4">
+      <slot name="actions">
+        {
+          actions.map((action) => (
+            <a
+              class="flex-grow rounded-md outline outline-1 p-2 text-center cursor-pointer"
+              href={action.url}
+              class={action.button_style}>
+              {action.title}
+            </a>
+          ))
+        }
+      </slot>
+    </div>
+  </div>
+</article>

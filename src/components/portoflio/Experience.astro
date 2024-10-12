@@ -1,13 +1,37 @@
 ---
-interface Props {
-  company: string;
-  position: string;
-  dates: {
-    start: string;
-    end: string;
-  };
-  description: string;
-  challenges: Array<string>;
-  stack: Array<string>;
-}
+import { Icon } from "astro-icon/components";
+import { type Experience as Props } from "src/types/ui";
+
+const { company, dates, description, challenges, stack }: Props = Astro.props;
 ---
+
+<div class="flex flex-col px-4 py-4 rounded-md bg-gray-200 dark:bg-gray-800">
+  <h3 class="text-xl font-bold">{company}</h3>
+  <small class="text-lg italic pb-4">{dates.start} - {dates.end}</small>
+  <p class="leading-loose pb-8">
+    {description}
+  </p>
+
+  <!-- Challenges -->
+  <h4 class="text-lg pb-2">Logros y retos</h4>
+  <ul class="flex flex-col gap-2 pb-8">
+    {
+      challenges.map((challenge) => (
+        <li class="flex gap-2">
+          <Icon
+            class="text-green-500"
+            name="material-symbols:check"
+            size={24}
+          />
+          <span>{challenge}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Stack -->
+  <h4 class="text-lg pb-2">Stack usado</h4>
+  <div class="flex flex-wrap gap-2 text-sm">
+    {stack.map((stack) => <span> {stack} </span>)}
+  </div>
+</div>
