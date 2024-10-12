@@ -22,3 +22,9 @@ jobs:
         run: railway up --service nginx
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEPLOY }}
+
+      - name: Clear cache from cloudflare
+        uses: JamesIves/fetch-api-data-action@v2
+        with:
+          endpoint: https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache
+          configuration: '{ "method": "POST", "headers": { "Authorization": "Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}", "Content-Type": "application/json" }, "body": { "hosts": ["aleacosta.com"] } }'
