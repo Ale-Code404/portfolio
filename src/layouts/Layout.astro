@@ -1,4 +1,5 @@
 ---
+import Footer from "@components/common/Footer.astro";
 import Header from "@components/common/Header.astro";
 ---
 
@@ -32,15 +33,15 @@ import Header from "@components/common/Header.astro";
     />
     <meta
       property="og:image"
-      content="https://aleacosta.com/logo.png"
+      content="https://aleacosta.com/logo.jpg"
     />
     <meta
       property="og:image:width"
-      content="300"
+      content="400"
     />
     <meta
       property="og:image:height"
-      content="300"
+      content="400"
     />
     <meta
       property="og:url"
@@ -56,7 +57,7 @@ import Header from "@components/common/Header.astro";
     />
     <meta
       name="twitter:image"
-      content="https://aleacosta.com/logo.png"
+      content="https://aleacosta.com/logo.jpg"
     />
     <meta
       name="twitter:url"
@@ -70,10 +71,15 @@ import Header from "@components/common/Header.astro";
   </head>
 
   <body class="bg-white dark:bg-zinc-900 dark:text-white">
-    <Header />
+    <!-- Wrapper -->
+    <div class="max-w-3xl mx-auto px-6 md:px-8">
+      <Header />
 
-    <main class="flex flex-col max-w-3xl mx-auto px-8 md:px-0">
-      <slot />
-    </main>
+      <main class="flex flex-col">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
   </body>
 </html>

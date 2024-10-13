@@ -1,13 +1,19 @@
+---
+import SocialNetworks from "./SocialNetworks.astro";
+---
+
 <!-- Hero section -->
-<section class="flex flex-col-reverse py-28 lg:flex-row md:py-48">
+<section class="py-28 md:py-48">
   <!-- Presentation -->
-  <div class="flex flex-col">
+  <div class="flex flex-col mb-20">
     <h1 class="text-4xl md:text-7xl pb-2">Alejandro Acosta</h1>
     <small class="text-xl italic">Backend Developer</small>
-    <p class="mt-20 text-lg/loose md:text-2xl/loose">
-      Ingeniero de sistemas con +3 años de experiencia en soluciones web
-      enfocadas en la eficencia y la escalabilidad, para clientes de diversas
-      areas como finanzas, servicios industriales y comercio.
-    </p>
   </div>
+  <p class="text-lg/loose md:text-2xl/loose mb-4">
+    Ingeniero de sistemas con +3 años de experiencia en soluciones web enfocadas
+    en la eficencia y la escalabilidad, para clientes de diversas areas como
+    finanzas, servicios industriales y comercio.
+  </p>
+
+  <SocialNetworks />
 </section>

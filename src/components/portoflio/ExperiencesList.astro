@@ -12,7 +12,7 @@ const { experiencies }: Props = Astro.props;
   {
     experiencies.map((experiencie, index) => (
       <li class="flex gap-6">
-        <div class="flex flex-col gap-4 items-center">
+        <div class="hidden md:flex flex-col gap-4 items-center">
           <span class="flex items-center justify-center w-12 h-12 rounded-full font-bold text-xl bg-gray-200 dark:bg-gray-800">
             {/* Count back from the last one */}
             {experiencies.length - index}
