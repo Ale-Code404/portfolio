@@ -1,17 +1,19 @@
 ---
-interface Props {
+import { type HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
   title: string;
   description: string | null;
 }
 
-const { title, description = null } = Astro.props;
+const { title, description = null, ...attributes } = Astro.props;
 ---
 
-<section class="pb-32">
+<section
+  {...attributes}
+  class="pb-32">
   <!-- Title -->
-  <h2 class="text-3xl pb-8 text-blue-800 dark:text-white">
-    {title}
-  </h2>
+  <h2 class="text-3xl pb-8 text-blue-800 dark:text-white">{title}</h2>
   {description && <p class="leading-loose pb-8">{description}</p>}
   <!-- Section content -->
   <slot />

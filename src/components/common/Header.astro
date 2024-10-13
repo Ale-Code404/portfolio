@@ -24,7 +24,9 @@ import Image from "astro/components/Image.astro";
 
 <header
   class="flex h-14 mt-8 bg-blue-800 text-white rounded-md dark:bg-gray-300 dark:text-black">
-  <nav class="flex md:hidden w-full justify-between items-center px-4">
+  <nav
+    id="mobile-nav"
+    class="flex md:hidden w-full justify-between items-center px-4">
     <Image
       src="/logo.png"
       width={32}
@@ -41,7 +43,9 @@ import Image from "astro/components/Image.astro";
     </button>
   </nav>
 
-  <nav class="hidden md:flex items-center w-full">
+  <nav
+    id="desktop-nav"
+    class="hidden md:flex items-center w-full">
     <ul class="flex flex-grow justify-around items-center">
       <li class="cursor-pointer">Sobre mi</li>
       <li class="cursor-pointer">Proyectos</li>

@@ -2,20 +2,22 @@
 import Experience from "./Experience.astro";
 
 interface Props {
-  experiencies: Array<any>;
+  experiences: Array<any>;
 }
 
-const { experiencies }: Props = Astro.props;
+const { experiences }: Props = Astro.props;
 ---
 
-<ul class="space-y-8">
+<ul
+  id="experiences-list"
+  class="space-y-8">
   {
-    experiencies.map((experiencie, index) => (
-      <li class="flex gap-6">
+    experiences.map((experiencie, index) => (
+      <li class="experience-list-item flex gap-6">
         <div class="hidden md:flex flex-col gap-4 items-center">
           <span class="flex items-center justify-center w-12 h-12 rounded-full font-bold text-xl bg-gray-200 dark:bg-gray-800">
             {/* Count back from the last one */}
-            {experiencies.length - index}
+            {experiences.length - index}
           </span>
           <div class="w-1 flex-grow border-l-2 border-dotted" />
         </div>

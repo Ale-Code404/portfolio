@@ -7,7 +7,7 @@ import ProjectCard from "@components/projects/ProjectCard.astro";
 import Badge from "@components/common/Badge.astro";
 
 import projects from "@data/projects.json";
-import experiencies from "@data/experiencies.json";
+import experiences from "@data/experiences.json";
 import ExperiencesList from "@components/portoflio/ExperiencesList.astro";
 // Get all unique stacks from projects
 const usedStack = Array.from(
@@ -20,10 +20,13 @@ const usedStack = Array.from(
 
   <!-- Proyects section -->
   <Section
+    id="projects"
     title="Proyectos"
     description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto.">
     <h3 class="text-xl pb-4">Tecnologias</h3>
-    <div class="flex flex-wrap gap-4 text-sm pb-8">
+    <div
+      id="used-stack"
+      class="flex flex-wrap gap-4 text-sm pb-8">
       {usedStack.map((stack) => <Badge title={stack} />)}
     </div>
     <!-- Projects cards -->
@@ -43,8 +46,9 @@ const usedStack = Array.from(
 
   <!-- Experience section -->
   <Section
+    id="experiences"
     title="Experiencia"
     description="He tenido un par de trabajos en estos años, aqui puedes ver lo que he logrado y los retos a los que me enfrenté.">
-    <ExperiencesList experiencies={experiencies} />
+    <ExperiencesList experiences={experiences} />
   </Section>
 </Layout>
