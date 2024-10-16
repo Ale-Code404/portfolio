@@ -57,3 +57,54 @@ it('on open mobile menu cant do vertical scrolling', () => {
     page.get('body').should('have.css', 'overflow', 'hidden');
     page.get('#close-menu').click();
 });
+
+it('initialize with default theme', () => {
+    const page = cy.visit('/');
+
+    page.getAllLocalStorage().then(storage => {
+        const local = storage[Cypress.config().baseUrl] ?? false;
+
+        if (local) {
+            expect(local).to.have.property('theme');
+        }
+    })
+})
+
+it('can toggle theme', () => {
+    const page = cy.viewport('macbook-13').visit('/');
+
+    page.get('#desktop-theme-switcher').click();
+    page.get('body').should('satisfy', (dom) => {
+        const classes = Array.from(dom[0].classList);
+        return !classes.includes('dark');
+    })
+
+    page.get('#desktop-theme-switcher').click();
+
+    page.get('body').should('satisfy', (dom) => {
+        const classes = Array.from(dom[0].classList);
+        return classes.includes('dark');
+    })
+});
+
+
+it('can toggle theme on mobile', () => {
+    const page = cy.viewport('samsung-s10').visit('/');
+
+    page.get('#open-menu').click();
+    page.get('#mobile-theme-switcher').click();
+
+    page.get('body').should('satisfy', (dom) => {
+        const classes = Array.from(dom[0].classList);
+        return !classes.includes('dark');
+    })
+
+    page.get('#mobile-theme-switcher').click();
+
+    page.get('body').should('satisfy', (dom) => {
+        const classes = Array.from(dom[0].classList);
+        return classes.includes('dark');
+    })
+
+    page.get('#close-menu').click();
+});

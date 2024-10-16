@@ -53,7 +53,7 @@ import Image from "astro/components/Image.astro";
   <nav
     id="mobile-nav"
     class="flex md:hidden w-full justify-between items-center px-4">
-    <div class="p-2 rounded-md bg-white">
+    <div class="p-2 rounded-md bg-white dark:bg-inherit">
       <Image
         src="/logo.png"
         width={24}
@@ -84,6 +84,7 @@ import Image from "astro/components/Image.astro";
 
   <div class="hidden h-14 lg:flex justify-center absolute right-8">
     <button
+      id="desktop-theme-switcher"
       class="theme-switcher p-1 px-4 active:bg-gray-200 rounded-md bg-zinc-900 text-white dark:bg-blue-800">
       <Icon
         class="block dark:hidden"
@@ -126,6 +127,7 @@ import Image from "astro/components/Image.astro";
 
     <div class="flex pb-4">
       <button
+        id="mobile-theme-switcher"
         class="theme-switcher w-full p-2 active:bg-zinc-900 dark:active:bg-blue-900 rounded-md bg-zinc-800 text-white dark:bg-blue-800">
         <div class="hidden justify-between items-center dark:flex">
           <span> Claro</span>
