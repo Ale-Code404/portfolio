@@ -1,0 +1,32 @@
+{
+    "company": "Sistematizar EF Ltda",
+    "position": "Lider de proyectos",
+    "dates": {
+        "start": "Jun. 2021",
+        "end": "Oct. 2022"
+    },
+    "description": "Durante mi cargo tuve la oportunidad de liderar nuevos proyectos y mantener algunos existentes.",
+    "challenges": [
+        "Migraciones de servidores (VPS) a la nube con AWS, junto con su arquitectura de servicios.",
+        "Desarrollo de aplicaciones con Ionic 6, consumiendo APIs REST e implementando la lógica de negocio.",
+        "Migraciones de proyectos sin sistemas de versiones a Git.",
+        "Apuesta por tecnologías como Node.js, Tailwindcss y Vite en el front para nuevos productos.",
+        "Externalización de archivos en sistemas de almacenamiento en la nube (Cloudflare R2)."
+    ],
+    "stack": [
+        "PHP",
+        "Laravel",
+        "Vue.js",
+        "MySQL",
+        "PostgreSQL",
+        "Linux",
+        "Git",
+        "EC2",
+        "S3",
+        "SES",
+        "RDS",
+        "SNS",
+        "SQS",
+        "Pinpoint"
+    ]
+}

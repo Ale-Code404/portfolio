@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "cypress run",
     "cy:open": "cypress open"
   },
   "dependencies": {

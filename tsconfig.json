@@ -12,9 +12,6 @@
       ],
       "@layouts/*": [
         "src/layouts/*"
-      ],
-      "@data/*": [
-        "src/data/*"
       ]
     }
   }

@@ -1,17 +1,20 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Section from "@components/common/Section.astro";
-import Summary from "@components/portoflio/Summary.astro";
 
-import ProjectCard from "@components/projects/ProjectCard.astro";
 import Badge from "@components/common/Badge.astro";
+import Section from "@components/common/Section.astro";
 
-import projects from "@data/projects.json";
-import experiences from "@data/experiences.json";
+import Summary from "@components/portoflio/Summary.astro";
 import ExperiencesList from "@components/portoflio/ExperiencesList.astro";
+import ProjectCard from "@components/projects/ProjectCard.astro";
+
+const projects = await getCollection("projects");
+const experiences = await getCollection("experiences");
+
 // Get all unique stacks from projects
 const usedStack = Array.from(
-  new Set(projects.map((project) => project.stack).flat())
+  new Set(projects.map((project) => project.data.stack).flat())
 );
 ---
 
@@ -32,12 +35,12 @@ const usedStack = Array.from(
     <!-- Projects cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
       {
-        projects.map((project) => (
+        projects.map(({ data }) => (
           <ProjectCard
-            title={project.title}
-            codename={project.codename}
-            description={project.description}
-            actions={project.actions}
+            title={data.title}
+            codename={data.codename}
+            description={data.description}
+            actions={data.actions}
           />
         ))
       }
@@ -49,6 +52,8 @@ const usedStack = Array.from(
     id="experiences"
     title="Experiencia"
     description="He tenido un par de trabajos en estos años, aqui puedes ver lo que he logrado y los retos a los que me enfrenté.">
-    <ExperiencesList experiences={experiences} />
+    <ExperiencesList
+      experiences={experiences.map((experience) => experience.data)}
+    />
   </Section>
 </Layout>

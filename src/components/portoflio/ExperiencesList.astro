@@ -1,8 +1,9 @@
 ---
+import type { Experience as ExperienceType } from "src/types/ui";
 import Experience from "./Experience.astro";
 
 interface Props {
-  experiences: Array<any>;
+  experiences: Array<ExperienceType>;
 }
 
 const { experiences }: Props = Astro.props;

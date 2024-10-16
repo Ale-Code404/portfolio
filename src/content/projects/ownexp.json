@@ -1,0 +1,19 @@
+{
+    "title": "Gestor de gastos personales",
+    "codename": "Ownexp",
+    "description": "Servicio web para gestionar tu prespuesto personal, tal como gastos e ingresos, securizado mediante usuario y contraseña (JWT).",
+    "image_url": "https://placehold.co/500x300",
+    "stack": [
+        "PHP",
+        "Lumen",
+        "Linux",
+        "Cloud"
+    ],
+    "actions": [
+        {
+            "title": "Proximamente...",
+            "url": "/",
+            "button_style": "rounded-md outline outline-1 p-2"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "company": "IGM COLOMBIA SAS",
+    "position": "Mantenimiento y desarrollo de ERP",
+    "dates": {
+        "start": "Oct. 2022",
+        "end": "Presente"
+    },
+    "description": "Mi principal responsabilidad fue mantener el sistema de gestion de la empresa (ERP), resolviendo problemas e implementando nuevas funcionalidades.",
+    "challenges": [
+        "Desarrollar nuevos módulos como nómina, auditoría y monitorización.",
+        "Implementar una capa de servicios en el patrón MVC, logrando que el código sea más estable y reusable.",
+        "Implementar una batería de tests unitarios y de características para el backend y frontend, garantizando la calidad del código.",
+        "Funcionalidades basadas en generación y comparación de imágenes para procesos de auditoría interna.",
+        "Externalización de archivos en sistemas de almacenamiento en la nube (Cloudflare R2)."
+    ],
+    "stack": [
+        "PHP",
+        "Laravel",
+        "Vue.js",
+        "MySQL",
+        "Redis",
+        "R2",
+        "Linux",
+        "Git",
+        "Bash scripting"
+    ]
+}

@@ -7,10 +7,23 @@ import Image from "astro/components/Image.astro";
   const menu = document.getElementById("open-menu");
   const close = document.getElementById("close-menu");
   const aside = document.getElementById("mobile-menu");
+  const theme = document.getElementById("theme-switcher");
 
   const toggleMenu = (aside: HTMLElement) => {
     document.body.classList.toggle("overflow-hidden");
     aside.classList.toggle("hidden");
+  };
+
+  const toggleTheme = () => {
+    const theme = localStorage.getItem("theme");
+
+    if (theme === "dark") {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
   };
 
   if (menu && aside) {
@@ -19,6 +32,17 @@ import Image from "astro/components/Image.astro";
 
   if (close && aside) {
     close.addEventListener("click", () => toggleMenu(aside));
+  }
+
+  if (theme) {
+    theme.addEventListener("click", () => toggleTheme());
+  }
+
+  const initialTheme = localStorage.getItem("theme") || "dark";
+  localStorage.setItem("theme", initialTheme);
+
+  if (initialTheme) {
+    document.body.classList.add(initialTheme);
   }
 </script>
 
@@ -47,12 +71,31 @@ import Image from "astro/components/Image.astro";
     id="desktop-nav"
     class="hidden md:flex items-center w-full">
     <ul class="flex flex-grow justify-around items-center">
-      <li class="cursor-pointer">Sobre mi</li>
-      <li class="cursor-pointer">Proyectos</li>
-      <li class="cursor-pointer">Blog</li>
-      <li class="cursor-pointer">Contacto</li>
+      <li class="hover:text-blue-600 cursor-pointer">Sobre mi</li>
+      <li class="hover:text-blue-600 cursor-pointer">Proyectos</li>
+      <li class="hover:text-blue-600 cursor-pointer">Blog</li>
+      <li class="hover:text-blue-600 cursor-pointer">Contacto</li>
     </ul>
   </nav>
+
+  <div
+    id="desktop-theme-switcher"
+    class="h-14 flex justify-center absolute right-8">
+    <button
+      id="theme-switcher"
+      class="p-1 px-4 active:bg-gray-200 rounded-md bg-zinc-900 text-white dark:bg-blue-800">
+      <Icon
+        class="block dark:hidden"
+        name="material-symbols:brightness-4-outline"
+        size={32}
+      />
+      <Icon
+        class="hidden dark:block"
+        name="material-symbols:brightness-5-outline"
+        size={32}
+      />
+    </button>
+  </div>
 </header>
 
 <aside
