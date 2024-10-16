@@ -7,7 +7,7 @@ import Image from "astro/components/Image.astro";
   const menu = document.getElementById("open-menu");
   const close = document.getElementById("close-menu");
   const aside = document.getElementById("mobile-menu");
-  const theme = document.getElementById("theme-switcher");
+  const theme = document.querySelectorAll(".theme-switcher");
 
   const toggleMenu = (aside: HTMLElement) => {
     document.body.classList.toggle("overflow-hidden");
@@ -34,8 +34,10 @@ import Image from "astro/components/Image.astro";
     close.addEventListener("click", () => toggleMenu(aside));
   }
 
-  if (theme) {
-    theme.addEventListener("click", () => toggleTheme());
+  if (theme && theme.length) {
+    theme.forEach((item) =>
+      item.addEventListener("click", () => toggleTheme())
+    );
   }
 
   const initialTheme = localStorage.getItem("theme") || "dark";
@@ -51,12 +53,14 @@ import Image from "astro/components/Image.astro";
   <nav
     id="mobile-nav"
     class="flex md:hidden w-full justify-between items-center px-4">
-    <Image
-      src="/logo.png"
-      width={32}
-      height={32}
-      alt="Logo del sitio web de Alejandro Acosta"
-    />
+    <div class="p-2 rounded-md bg-white">
+      <Image
+        src="/logo.png"
+        width={24}
+        height={24}
+        alt="Logo del sitio web de Alejandro Acosta"
+      />
+    </div>
     <button
       id="open-menu"
       class="p-1 active:bg-gray-200 rounded-md">
@@ -78,12 +82,9 @@ import Image from "astro/components/Image.astro";
     </ul>
   </nav>
 
-  <div
-    id="desktop-theme-switcher"
-    class="h-14 flex justify-center absolute right-8">
+  <div class="hidden h-14 lg:flex justify-center absolute right-8">
     <button
-      id="theme-switcher"
-      class="p-1 px-4 active:bg-gray-200 rounded-md bg-zinc-900 text-white dark:bg-blue-800">
+      class="theme-switcher p-1 px-4 active:bg-gray-200 rounded-md bg-zinc-900 text-white dark:bg-blue-800">
       <Icon
         class="block dark:hidden"
         name="material-symbols:brightness-4-outline"
@@ -100,24 +101,47 @@ import Image from "astro/components/Image.astro";
 
 <aside
   id="mobile-menu"
-  class="hidden absolute top-0 right-0 w-full h-full bg-opacity-90 bg-zinc-950">
-  <section class="w-2/4 h-full ml-auto pt-8 pl-8 pr-6 bg-zinc-800">
-    <div class="h-14 flex items-center justify-end px-4">
-      <button
-        id="close-menu"
-        class="p-1 active:bg-zinc-700 rounded-md">
-        <Icon
-          name="material-symbols:close"
-          size={32}
-        />
-      </button>
+  class="hidden absolute top-0 right-0 w-full h-full bg-opacity-30 dark:bg-opacity-90 bg-zinc-950">
+  <section
+    class="flex flex-col justify-between w-2/4 h-full ml-auto pt-8 pl-8 pr-6 bg-white dark:bg-zinc-800">
+    <div>
+      <div class="h-14 flex items-center justify-end px-4">
+        <button
+          id="close-menu"
+          class="p-1 active:bg-zinc-700 rounded-md">
+          <Icon
+            name="material-symbols:close"
+            size={32}
+          />
+        </button>
+      </div>
+
+      <ul class="flex flex-col gap-4">
+        <li class="cursor-pointer">Sobre mi</li>
+        <li class="cursor-pointer">Proyectos</li>
+        <li class="cursor-pointer">Blog</li>
+        <li class="cursor-pointer">Contacto</li>
+      </ul>
     </div>
 
-    <ul class="flex flex-col gap-4">
-      <li class="cursor-pointer">Sobre mi</li>
-      <li class="cursor-pointer">Proyectos</li>
-      <li class="cursor-pointer">Blog</li>
-      <li class="cursor-pointer">Contacto</li>
-    </ul>
+    <div class="flex pb-4">
+      <button
+        class="theme-switcher w-full p-2 active:bg-zinc-900 dark:active:bg-blue-900 rounded-md bg-zinc-800 text-white dark:bg-blue-800">
+        <div class="hidden justify-between items-center dark:flex">
+          <span> Claro</span>
+          <Icon
+            name="material-symbols:brightness-5-outline"
+            size={24}
+          />
+        </div>
+        <div class="flex justify-between items-center dark:hidden">
+          <span> Oscuro</span>
+          <Icon
+            name="material-symbols:brightness-4-outline"
+            size={24}
+          />
+        </div>
+      </button>
+    </div>
   </section>
 </aside>
