@@ -13,7 +13,7 @@ const { title, description = null, ...attributes } = Astro.props;
   {...attributes}
   class="pb-32">
   <!-- Title -->
-  <h2 class="text-3xl pb-8 text-blue-800 dark:text-white">{title}</h2>
+  <h2 class="text-3xl pb-2 text-blue-800 dark:text-white">{title}</h2>
   {description && <p class="leading-loose pb-8">{description}</p>}
   <!-- Section content -->
   <slot />

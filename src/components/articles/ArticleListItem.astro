@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  date: string;
+  tags: Array<string>;
+}
+
+const { title, description, image }: Props = Astro.props;
+---
+
+<article class="flex rounded-md h-full bg-gray-100 dark:bg-gray-800">
+  <Image
+    src={image.src}
+    width={500}
+    height={300}
+    alt={image.alt}
+    class="w-2/4 object-cover"
+  />
+  <div class="flex flex-col">
+    <header class="p-4">
+      <h4 class="text-xl">{title}</h4>
+    </header>
+    <div class="flex flex-col flex-grow gap-2 px-4 pb-4">
+      <p class="flex-grow text-sm">
+        {description}
+      </p>
+    </div>
+  </div>
+</article>

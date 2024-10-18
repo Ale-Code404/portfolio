@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import ArticleList from "@components/articles/ArticleList.astro";
+import Section from "@components/common/Section.astro";
+
+const articles = await getCollection("articles");
+const articleCount = articles.length;
+const isOddArticleCount = articleCount % 2 !== 0;
+---
+
+<Layout title="Artículos">
+  <Section
+    class="pt-16 pb-32"
+    title="Artículos"
+    description="Generalmente escribo sobre problemas y retos a los que me enfrento, en ocasiones sobre nuevas tecnologias o metodologias, asi que puedes darle un vistazo tal vez algo te interese.">
+    <div class="flex justify-end items-center pb-4">
+      <h3>
+        {articleCount}
+        {isOddArticleCount ? "artículo" : "artículos"}
+      </h3>
+    </div>
+
+    <ArticleList articles={articles} />
+  </Section>
+</Layout>

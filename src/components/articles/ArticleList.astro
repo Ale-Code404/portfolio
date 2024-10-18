@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import ArticleCard from "./ArticleCard.astro";
+import ArticleListItem from "./ArticleListItem.astro";
+
+interface Props {
+  articles: CollectionEntry<"articles">[];
+  as?: "cards" | "list";
+}
+
+const { articles, as = "cards" }: Props = Astro.props;
+
+const articleCount = articles.length;
+const hasOddNumberOfArticles = articleCount % 2 !== 0;
+
+const Item = as == "list" ? ArticleListItem : ArticleCard;
+const containerClass =
+  as == "list"
+    ? "flex flex-col gap-6"
+    : "grid grid-cols-1 md:grid-cols-2 gap-6";
+---
+
+<section class={containerClass}>
+  {
+    articles.map((article) => (
+      <Item
+        title={article.data.title}
+        description={article.data.description}
+        image={article.data.image}
+        date={article.data.date.toISOString()}
+        tags={article.data.tags}
+      />
+    ))
+  }
+  {
+    hasOddNumberOfArticles && as == "cards" && (
+      <article
+        id="last-article-placeholder"
+        class="flex items-center justify-center bg-gray-600 bg-opacity-20 rounded-md">
+        <p class="text-lg text-gray-400">
+          Próximamente nuevos artículos <span class="animate-pulse">...</span>
+        </p>
+      </article>
+    )
+  }
+</section>

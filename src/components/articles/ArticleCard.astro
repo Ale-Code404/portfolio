@@ -1,0 +1,48 @@
+---
+import Badge from "@components/common/Badge.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  date: string;
+  tags: Array<string>;
+}
+
+const { title, description, image, date, tags }: Props = Astro.props;
+---
+
+<article
+  class="flex flex-col h-full bg-gray-100 dark:bg-gray-800 rounded-md hover:shadow-[10px_10px_0px_0px] hover:shadow-blue-600/30 hover:cursor-pointer hover:scale-95 hover:-translate-x-1 hover:-translate-y-1 transition-[transform,box-shadow] duration-150">
+  <Image
+    src={image.src}
+    width={500}
+    height={300}
+    alt={image.alt}
+    class="w-full object-cover rounded-t-md"
+  />
+  <header class="p-4">
+    <p class="text-sm font-bold mb-2">{date.slice(0, 10)}</p>
+    <h4 class="text-xl">{title}</h4>
+  </header>
+  <div class="flex flex-col flex-grow gap-2 px-4 pb-4">
+    <p class="flex-grow text-sm line-clamp-3 min-h-16">
+      {description}
+    </p>
+
+    <div class="flex gap-4 pt-4">
+      {
+        tags.map((tag) => (
+          <Badge
+            class="text-xs border-blue-600 hover:bg-blue-600 hover:text-white"
+            title={tag}
+          />
+        ))
+      }
+    </div>
+  </div>
+</article>

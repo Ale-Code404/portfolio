@@ -9,3 +9,15 @@ export interface Experience {
   challenges: Array<string>;
   stack: Array<string>;
 }
+
+export interface Article {
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  date: string;
+  tags: Array<string>;
+  relatedArticles: Array<Article>;
+}

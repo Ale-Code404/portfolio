@@ -3,50 +3,7 @@ import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
 ---
 
-<script>
-  const menu = document.getElementById("open-menu");
-  const close = document.getElementById("close-menu");
-  const aside = document.getElementById("mobile-menu");
-  const theme = document.querySelectorAll(".theme-switcher");
-
-  const toggleMenu = (aside: HTMLElement) => {
-    document.body.classList.toggle("overflow-hidden");
-    aside.classList.toggle("hidden");
-  };
-
-  const toggleTheme = () => {
-    const theme = localStorage.getItem("theme");
-
-    if (theme === "dark") {
-      document.body.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-  };
-
-  if (menu && aside) {
-    menu.addEventListener("click", () => toggleMenu(aside));
-  }
-
-  if (close && aside) {
-    close.addEventListener("click", () => toggleMenu(aside));
-  }
-
-  if (theme && theme.length) {
-    theme.forEach((item) =>
-      item.addEventListener("click", () => toggleTheme())
-    );
-  }
-
-  const initialTheme = localStorage.getItem("theme") || "dark";
-  localStorage.setItem("theme", initialTheme);
-
-  if (initialTheme) {
-    document.body.classList.add(initialTheme);
-  }
-</script>
+<script src="../scripts/theme-switch.ts"></script>
 
 <header
   class="flex h-14 mt-8 bg-blue-800 text-white rounded-md dark:bg-gray-300 dark:text-black">
@@ -75,10 +32,18 @@ import Image from "astro/components/Image.astro";
     id="desktop-nav"
     class="hidden md:flex items-center w-full">
     <ul class="flex flex-grow justify-around items-center">
-      <li class="hover:text-blue-600 cursor-pointer">Sobre mi</li>
-      <li class="hover:text-blue-600 cursor-pointer">Proyectos</li>
-      <li class="hover:text-blue-600 cursor-pointer">Blog</li>
-      <li class="hover:text-blue-600 cursor-pointer">Contacto</li>
+      <li class="hover:text-blue-600 cursor-pointer">
+        <a href="/">Sobre mi</a>
+      </li>
+      <li class="hover:text-blue-600 cursor-pointer">
+        <a href="/">Proyectos</a>
+      </li>
+      <li class="hover:text-blue-600 cursor-pointer">
+        <a href="/articles">Artículos</a>
+      </li>
+      <li class="hover:text-blue-600 cursor-pointer">
+        <a href="/">Contacto</a>
+      </li>
     </ul>
   </nav>
 
@@ -102,7 +67,7 @@ import Image from "astro/components/Image.astro";
 
 <aside
   id="mobile-menu"
-  class="hidden absolute top-0 right-0 w-full h-full bg-opacity-30 dark:bg-opacity-90 bg-zinc-950">
+  class="hidden absolute z-50 top-0 right-0 w-full h-full bg-opacity-30 dark:bg-opacity-90 bg-zinc-950">
   <section
     class="flex flex-col justify-between w-2/4 h-full ml-auto pt-8 pl-8 pr-6 bg-white dark:bg-zinc-800">
     <div>
@@ -118,10 +83,18 @@ import Image from "astro/components/Image.astro";
       </div>
 
       <ul class="flex flex-col gap-4">
-        <li class="cursor-pointer">Sobre mi</li>
-        <li class="cursor-pointer">Proyectos</li>
-        <li class="cursor-pointer">Blog</li>
-        <li class="cursor-pointer">Contacto</li>
+        <li class="cursor-pointer">
+          <a href="/">Sobre mi</a>
+        </li>
+        <li class="cursor-pointer">
+          <a href="/">Proyectos</a>
+        </li>
+        <li class="cursor-pointer">
+          <a href="/articles">Artículos</a>
+        </li>
+        <li class="cursor-pointer">
+          <a href="/">Contacto</a>
+        </li>
       </ul>
     </div>
 
