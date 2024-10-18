@@ -12,16 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node 22
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: 22.x
-
-      - run: echo "Using node $(node -v)"
-      - run: echo "Using npm $(npm -v)"
-
-      - name: Install dependencies
-        run: npm ci
+          node-version: 22.7.0
+      - run: npm ci
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
@@ -37,7 +31,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use Node 22
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 22.x
 
