@@ -16,7 +16,6 @@ const getThemePreference = (): string => {
 
 const setTheme = (root: Document, theme: string) => {
   localStorage.setItem("theme", theme);
-  root.body.classList.add(theme);
 
   if (theme === "dark") {
     root.body.classList.add("dark");
