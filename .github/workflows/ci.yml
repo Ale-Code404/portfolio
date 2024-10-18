@@ -23,7 +23,6 @@ jobs:
         with:
           build: npm run build
           start: npm run preview
-          browser: chrome
 
   deploy:
     runs-on: ubuntu-latest
