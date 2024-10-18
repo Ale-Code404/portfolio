@@ -12,6 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Use Node 22
+        uses: actions/setup-node@v1
+        with:
+          node-version: 22.x
+
       - run: echo "Using node $(node -v)"
       - run: echo "Using npm $(npm -v)"
 
