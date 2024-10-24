@@ -1,9 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
----
 
-<script src="../scripts/theme-switch.ts"></script>
+const url = Astro.url;
+const pathname = url.pathname;
+---
 
 <header
   class="flex h-14 mt-8 bg-blue-800 text-white rounded-md dark:bg-gray-300 dark:text-black">
@@ -32,16 +33,24 @@ import Image from "astro/components/Image.astro";
     id="desktop-nav"
     class="hidden md:flex items-center w-full">
     <ul class="flex flex-grow justify-around items-center">
-      <li class="hover:text-blue-600 cursor-pointer">
+      <li
+        class="hover:text-blue-600 cursor-pointer"
+        class:list={[{ "text-blue-600": pathname === "/" }]}>
         <a href="/">Sobre mi</a>
       </li>
-      <li class="hover:text-blue-600 cursor-pointer">
+      <li
+        class="hover:text-blue-600 cursor-pointer"
+        class:list={[{ "text-blue-600": pathname.startsWith("/projects") }]}>
         <a href="/">Proyectos</a>
       </li>
-      <li class="hover:text-blue-600 cursor-pointer">
+      <li
+        class="hover:text-blue-600 cursor-pointer"
+        class:list={[{ "text-blue-600": pathname.startsWith("/articles") }]}>
         <a href="/articles/">Artículos</a>
       </li>
-      <li class="hover:text-blue-600 cursor-pointer">
+      <li
+        class="hover:text-blue-600 cursor-pointer"
+        class:list={[{ "text-blue-600": pathname === "/contact" }]}>
         <a href="/">Contacto</a>
       </li>
     </ul>

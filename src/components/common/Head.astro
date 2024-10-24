@@ -1,9 +1,17 @@
 ---
-const { title } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+}
 
-const titleGenerated = title
-  ? `${title} | Alejandro Acosta`
-  : "Alejandro Acosta | Backend Developer";
+const { title, description }: Props = Astro.props;
+
+const defaultTitle = "Alejandro Acosta | Backend Developer";
+const defaultDescription =
+  "Desarrollador Backend con más de 4 años de experiencia en el desarrollo de productos escalables con PHP";
+
+const pageTitle = title ? `${title} | Alejandro Acosta` : defaultTitle;
+const pageDescription = description ? description : defaultDescription;
 ---
 
 <head>
@@ -18,7 +26,7 @@ const titleGenerated = title
   />
   <meta
     name="description"
-    content="Desarrollador Backend con más de 4 años de experiencia en el desarrollo de productos escalables con PHP"
+    content={pageDescription}
   />
   <meta
     name="keywords"
@@ -30,7 +38,7 @@ const titleGenerated = title
   />
   <meta
     property="og:description"
-    content="Desarrollador Backend con más de 4 años de experiencia en el desarrollo de productos escalables con PHP"
+    content={pageDescription}
   />
   <meta
     property="og:image"
@@ -54,7 +62,7 @@ const titleGenerated = title
   />
   <meta
     name="twitter:description"
-    content="Desarrollador Backend con más de 4 años de experiencia en el desarrollo de productos escalables con PHP"
+    content={pageDescription}
   />
   <meta
     name="twitter:image"
@@ -72,14 +80,19 @@ const titleGenerated = title
     rel="shortcut icon"
     href="/favicon.ico"
   />
-  <title>{titleGenerated}</title>
+  <title>{pageTitle}</title>
 
   <!-- Add analytics -->
   <script
+    is:inline
     defer
     src="https://analytics.aleacosta.com/script.js"
     data-website-id="b71992bd-1cf7-414d-8eac-e2a4949a9b35"
+    data-domains="aleacosta.com"
   ></script>
+
+  <!-- Add theme switcher -->
+  <script src="../scripts/theme-switch.ts"></script>
 
   <slot />
 </head>
