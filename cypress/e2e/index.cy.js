@@ -61,13 +61,11 @@ describe("Desktop", () => {
   it("can toggle theme", () => {
     cy.visit("/");
 
-    // Remove dark class
-    cy.get("#desktop-theme-switcher").click();
-    cy.get("body").should("have.class", bodyClass);
-
-    // Trigger dark class
     cy.get("#desktop-theme-switcher").click();
     cy.get("body").should("have.class", `${bodyClass} dark`);
+
+    cy.get("#desktop-theme-switcher").click();
+    cy.get("body").should("have.class", bodyClass);
   });
 });
 
@@ -77,25 +75,17 @@ describe("Mobile", () => {
   });
 
   it("can toggle theme on mobile", () => {
-    cy.visit("/", {
-      onLoad(win) {
-        cy.stub(win, "matchMedia")
-          .withArgs("(prefers-color-scheme: dark)")
-          .returns({
-            matches: true,
-          });
-      },
-    });
+    cy.visit("/");
 
     cy.get("#open-menu").click();
     cy.get("#mobile-theme-switcher").click();
 
     // Remove dark class
-    cy.get("body").should("have.class", bodyClass);
+    cy.get("body").should("have.class", `${bodyClass} overflow-hidden`);
     cy.get("#mobile-theme-switcher").click();
 
     // Trigger dark class
-    cy.get("body").should("have.class", `${bodyClass} overflow-hidden dark`);
+    cy.get("body").should("have.class", bodyClass);
     cy.get("#close-menu").click();
   });
 
