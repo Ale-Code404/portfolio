@@ -1,19 +1,14 @@
 {
-    "title": "Acortardor de URLs via API REST",
-    "codename": "ShortMe",
-    "description": "Permite acortar URLs, establecer un limite de visitas, consultar estadísticas, proteger mediante contraseña, entre otras características.",
-    "image_url": "https://placehold.co/500x300",
-    "stack": [
-        "PHP",
-        "Laravel",
-        "PostgreSQL",
-        "AWS"
-    ],
-    "actions": [
-        {
-            "title": "Proximamente...",
-            "url": "/",
-            "button_style": "rounded-md outline outline-1 p-2"
-        }
-    ]
+  "title": "Acortardor de URLs via API REST",
+  "codename": "ShortMe",
+  "description": "Permite acortar URLs, establecer un limite de visitas, consultar estadísticas, proteger mediante contraseña, entre otras características.",
+  "image_url": "/assets/images/projects/placeholder.webp",
+  "stack": ["PHP", "Laravel", "PostgreSQL", "AWS"],
+  "actions": [
+    {
+      "title": "Proximamente...",
+      "url": "/",
+      "button_style": "rounded-md outline outline-1 p-2"
+    }
+  ]
 }

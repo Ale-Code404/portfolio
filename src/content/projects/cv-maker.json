@@ -1,0 +1,14 @@
+{
+  "title": "Generador de curriculumns con IA",
+  "codename": "CVMaker",
+  "description": "Herramienta para generar curriculumns de forma rápida e intuitiva, con base en tu perfil de LinkedIn.",
+  "image_url": "/assets/images/projects/placeholder.webp",
+  "stack": ["Cloudflare", "AWS"],
+  "actions": [
+    {
+      "title": "Proximamente...",
+      "url": "https://cv-maker.io",
+      "button_style": "rounded-md outline outline-1 p-2"
+    }
+  ]
+}
