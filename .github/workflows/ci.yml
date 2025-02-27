@@ -40,7 +40,7 @@ jobs:
 
       # In this step we build a new version using Dockerfile
       - name: Deploy
-        run: railway up --service nginx
+        run: railway up --service nginx --ci
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEPLOY }}
 
