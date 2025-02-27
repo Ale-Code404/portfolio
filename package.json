@@ -10,7 +10,8 @@
     "astro": "astro",
     "test": "cypress run",
     "cy:open": "cypress open",
-    "prepare": "husky"
+    "prepare": "husky",
+    "ci:pre-commit": "lint-staged --config lint-staged.pre-commit.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -19,12 +20,13 @@
     "astro-icon": "^1.1.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15",
     "@iconify-json/material-symbols": "^1.2.4",
     "@iconify-json/mdi": "^1.2.1",
-    "typescript": "^5.5.4",
-    "tailwindcss": "^3.4.10",
+    "@tailwindcss/typography": "^0.5.15",
     "cypress": "^13.15.0",
-    "husky": "^9.1.6"
+    "husky": "^9.1.6",
+    "lint-staged": "^15.4.3",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
   }
 }
