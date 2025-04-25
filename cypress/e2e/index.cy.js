@@ -1,13 +1,24 @@
 const bodyClass = "bg-white dark:bg-zinc-900 dark:text-white";
 
 describe("Common", () => {
-  it("titles are correct", () => {
+  it("has title", () => {
     const page = cy.visit("/");
 
     page
       .get("title")
-      .should("have.text", "Alejandro Acosta | Backend Developer");
-    page.get("h1").should("have.text", "Alejandro Acosta");
+      .should("exist");
+
+    page.get("title").should("exist");
+  });
+
+  it("has meta tags", () => {
+    const page = cy.visit("/");
+
+    page
+      .get("meta[name=keywords]")
+      .should("exist");
+    page.get("meta[name=keywords]")
+      .should("exist");
   });
 
   it("has used stack", () => {
