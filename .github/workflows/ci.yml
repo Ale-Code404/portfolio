@@ -42,8 +42,8 @@ jobs:
         run: wrangler pages publish ./dist  \
           --project-name=portfolio \
           --branch=master \
-          --commit-hash=${{ github.sha }} \
-          --commit-message=${{ github.event.head_commit.message }}
+          --commit-hash="${{ github.sha }}" \
+          --commit-message="${{ github.event.head_commit.message }}"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
