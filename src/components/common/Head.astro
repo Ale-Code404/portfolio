@@ -1,4 +1,6 @@
 ---
+import { getPersonalInfo } from "@content/loaders/personal-info";
+
 interface Props {
   title?: string;
   description?: string;
@@ -6,11 +8,12 @@ interface Props {
 
 const { title, description }: Props = Astro.props;
 
-const defaultTitle = "Alejandro Acosta | Backend Developer";
-const defaultDescription =
-  "Desarrollador Backend con más de 4 años de experiencia en el desarrollo de productos escalables con PHP";
+const personalInfo = await getPersonalInfo();
 
-const pageTitle = title ? `${title} | Alejandro Acosta` : defaultTitle;
+const defaultTitle = `${personalInfo.name} - ${personalInfo.position}`;
+const defaultDescription = personalInfo.description;
+
+const pageTitle = title ? `${title} | ${personalInfo.name}` : defaultTitle;
 const pageDescription = description ? description : defaultDescription;
 ---
 
@@ -34,7 +37,7 @@ const pageDescription = description ? description : defaultDescription;
   />
   <meta
     property="og:title"
-    content="Alejandro Acosta - Backend Developer"
+    content={pageTitle}
   />
   <meta
     property="og:description"
@@ -58,7 +61,7 @@ const pageDescription = description ? description : defaultDescription;
   />
   <meta
     name="twitter:title"
-    content="Alejandro Acosta - Backend Developer"
+    content={pageTitle}
   />
   <meta
     name="twitter:description"

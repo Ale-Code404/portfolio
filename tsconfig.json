@@ -12,7 +12,10 @@
       ],
       "@layouts/*": [
         "src/layouts/*"
-      ]
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
     }
   }
 }
