@@ -47,6 +47,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-build
+          path: dist
 
       # Runs test using production build
       - name: Cypress run
@@ -71,6 +72,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-build
+          path: dist
 
       - name: Install Cloudflare CLI
         run: npm install -g wrangler@4.13.1
