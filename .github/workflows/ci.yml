@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: |
-          wrangler pages publish ./dist  \
+          wrangler pages deploy ./dist  \
             --project-name=portfolio \
             --branch=master \
             --commit-hash="${{ github.sha }}" \
