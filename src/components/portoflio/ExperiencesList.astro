@@ -7,28 +7,33 @@ interface Props {
 }
 
 const { experiences }: Props = Astro.props;
+
+const isLastExperience = (index: number) => {
+  return index === experiences.length - 1;
+};
 ---
 
 <ul
   id="experiences-list"
   class="space-y-8">
   {
-    experiences.map((experiencie, index) => (
+    experiences.map((experience, index) => (
       <li class="experience-list-item flex gap-6">
         <div class="hidden md:flex flex-col gap-4 items-center">
           <span class="flex items-center justify-center w-12 h-12 rounded-full font-bold text-xl bg-gray-200 dark:bg-gray-800">
-            {/* Count back from the last one */}
             {experiences.length - index}
           </span>
           <div class="w-1 flex-grow border-l-2 border-dotted" />
         </div>
+
         <Experience
-          company={experiencie.company}
-          position={experiencie.position}
-          dates={experiencie.dates}
-          description={experiencie.description}
-          challenges={experiencie.challenges}
-          stack={experiencie.stack}
+          company={experience.company}
+          position={experience.position}
+          dates={experience.dates}
+          description={experience.description}
+          challenges={experience.challenges}
+          stack={experience.stack}
+          isOpen={isLastExperience(index)}
         />
       </li>
     ))

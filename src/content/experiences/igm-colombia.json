@@ -5,7 +5,7 @@
         "start": "Oct. 2022",
         "end": "Presente"
     },
-    "description": "Mi principal responsabilidad fue mantener el sistema de gestion de la empresa (ERP), resolviendo problemas e implementando nuevas funcionalidades.",
+    "description": "Mi principal responsabilidad fue mantener el sistema de gestion de la empresa (ERP) resolviendo problemas e implementando nuevas funcionalidades.",
     "challenges": [
         "Desarrollar nuevos módulos como nómina, auditoría y monitorización.",
         "Implementar una capa de servicios en el patrón MVC, logrando que el código sea más estable y reusable.",

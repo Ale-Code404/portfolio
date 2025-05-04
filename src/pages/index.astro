@@ -25,11 +25,19 @@ const usedStack = Array.from(
   <Section
     id="projects"
     title="Proyectos"
-    description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto."
-  >
+    description="A lo largo de mi trayectoria he podido desarrollar proyectos personales que aborden problemas en nuevas areas de conocimiento y supongan un reto.">
     <h3 class="text-xl pb-4">Tecnologias</h3>
-    <div id="used-stack" class="flex flex-wrap gap-4 text-sm pb-8">
-      {usedStack.map((stack) => <Badge title={stack} />)}
+    <div
+      id="used-stack"
+      class="flex flex-wrap gap-4 text-sm pb-8">
+      {
+        usedStack.map((stack) => (
+          <Badge
+            class="hover:bg-blue-600 hover:text-white hover:cursor-pointer"
+            title={stack}
+          />
+        ))
+      }
     </div>
     <!-- Projects cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
@@ -51,8 +59,7 @@ const usedStack = Array.from(
   <Section
     id="experiences"
     title="Experiencia"
-    description="He tenido un par de trabajos en estos años, aqui puedes ver lo que he logrado y los retos a los que me enfrenté."
-  >
+    description="He tenido un par de trabajos en estos años, aqui puedes ver lo que he logrado y los retos a los que me enfrenté.">
     <ExperiencesList
       experiences={experiences.map((experience) => experience.data)}
     />
