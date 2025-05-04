@@ -34,24 +34,50 @@ const pathname = url.pathname;
     class="hidden md:flex items-center w-full">
     <ul class="flex flex-grow justify-around items-center">
       <li
-        class="hover:text-blue-600 cursor-pointer"
-        class:list={[{ "text-blue-600": pathname === "/" }]}>
-        <a href="/">Sobre mi</a>
+        class="hover:text-blue-600 hover:bg-white duration-150 cursor-pointer rounded"
+        class:list={[
+          {
+            "dark:text-blue-600 font-bold ": pathname === "/",
+          },
+        ]}>
+        <a
+          class="px-2 py-1"
+          href="/"
+          >Sobre mi</a
+        >
       </li>
       <li
-        class="hover:text-blue-600 cursor-pointer"
-        class:list={[{ "text-blue-600": pathname.startsWith("/projects") }]}>
-        <a href="/">Proyectos</a>
+        class="hover:text-blue-600 hover:bg-white duration-150 cursor-pointer rounded"
+        class:list={[
+          { "dark:text-blue-600 font-bold ": pathname.startsWith("/projects") },
+        ]}>
+        <a
+          class="px-2 py-1"
+          href="/"
+          >Proyectos</a
+        >
       </li>
       <li
-        class="hover:text-blue-600 cursor-pointer"
-        class:list={[{ "text-blue-600": pathname.startsWith("/articles") }]}>
-        <a href="/articles/">Artículos</a>
+        class="hover:text-blue-600 hover:bg-white duration-150 cursor-pointer rounded"
+        class:list={[
+          { "dark:text-blue-600 font-bold ": pathname.startsWith("/articles") },
+        ]}>
+        <a
+          class="px-2 py-1"
+          href="/articles/"
+          >Artículos</a
+        >
       </li>
       <li
-        class="hover:text-blue-600 cursor-pointer"
-        class:list={[{ "text-blue-600": pathname === "/contact" }]}>
-        <a href="/">Contacto</a>
+        class="hover:text-blue-600 hover:bg-white duration-150 cursor-pointer rounded"
+        class:list={[
+          { "dark:text-blue-600 font-bold ": pathname === "/contact" },
+        ]}>
+        <a
+          class="px-2 py-1"
+          href="/"
+          >Contacto</a
+        >
       </li>
     </ul>
   </nav>
