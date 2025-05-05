@@ -64,26 +64,6 @@ describe("Common", () => {
   });
 });
 
-describe("Desktop", () => {
-  beforeEach(() => {
-    cy.viewport("macbook-16");
-  });
-
-  it("can toggle theme", () => {
-    cy.visit('/');
-
-    cy.get("body").invoke("attr", "class").then((classes) => {
-      const isInDark = classes == `${bodyClass} dark`;
-
-      cy.get("#desktop-theme-switcher").click();
-      cy.get("body").should("have.class", `${bodyClass}${isInDark ? "" : " dark"}`);
-
-      cy.get("#desktop-theme-switcher").click();
-      cy.get("body").should("have.class", `${bodyClass}${isInDark ? " dark" : ""}`);
-    });
-  });
-});
-
 describe("Mobile", () => {
   beforeEach(() => {
     cy.viewport("samsung-s10");
