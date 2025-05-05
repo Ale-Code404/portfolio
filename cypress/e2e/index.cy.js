@@ -70,13 +70,17 @@ describe("Desktop", () => {
   });
 
   it("can toggle theme", () => {
-    cy.visit("/");
+    cy.visit('/');
 
-    cy.get("#desktop-theme-switcher").click();
-    cy.get("body").should("have.class", `${bodyClass} dark`);
+    cy.get("body").invoke("attr", "class").then((classes) => {
+      const isInDark = classes == `${bodyClass} dark`;
 
-    cy.get("#desktop-theme-switcher").click();
-    cy.get("body").should("have.class", bodyClass);
+      cy.get("#desktop-theme-switcher").click();
+      cy.get("body").should("have.class", `${bodyClass}${isInDark ? "" : " dark"}`);
+
+      cy.get("#desktop-theme-switcher").click();
+      cy.get("body").should("have.class", `${bodyClass}${isInDark ? " dark" : ""}`);
+    });
   });
 });
 
