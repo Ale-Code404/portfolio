@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "cypress run",
+    "test": "cypress run --browser chrome",
     "cy:open": "cypress open",
     "prepare": "husky",
     "ci:pre-commit": "lint-staged --config lint-staged.pre-commit.json"

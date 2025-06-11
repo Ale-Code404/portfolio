@@ -1,18 +1,25 @@
 ---
 import SocialNetworks from "./SocialNetworks.astro";
+import { getPersonalInfo } from "@content/loaders/personal-info";
+
+const personalInfo = await getPersonalInfo();
 ---
 
 <!-- Hero section -->
 <section class="py-28 md:py-48">
   <!-- Presentation -->
   <div class="flex flex-col mb-20">
-    <h1 class="text-4xl md:text-7xl pb-2">Alejandro Acosta</h1>
-    <small class="text-xl italic">Backend Developer</small>
+    <h1 class="text-4xl md:text-7xl pb-2">
+      {personalInfo.name}
+    </h1>
+    <small class="text-xl italic">
+      {personalInfo.position}
+    </small>
   </div>
   <p class="text-lg/loose md:text-2xl/loose mb-4">
-    Ingeniero de sistemas con +3 años de experiencia en soluciones web enfocadas
-    en la eficencia y la escalabilidad, para clientes de diversas areas como
-    finanzas, servicios industriales y comercio.
+    Ingeniero de sistemas con +{personalInfo.years} años de experiencia en soluciones
+    web enfocadas en la eficencia y la escalabilidad, para clientes de diversas areas
+    como finanzas, servicios industriales y comercio.
   </p>
 
   <SocialNetworks />
