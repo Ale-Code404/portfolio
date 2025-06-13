@@ -3,6 +3,12 @@ on:
   push:
     branches:
       - master
+
+env:
+  TEMPLATED_API_URL: ${{ secrets.TEMPLATED_API_URL }}
+  TEMPLATED_API_KEY: ${{ secrets.TEMPLATED_API_KEY }}
+  TEMPLATED_TEMPLATE_PROJECT: ${{ secrets.TEMPLATED_TEMPLATE_PROJECT }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
