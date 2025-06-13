@@ -50,38 +50,11 @@ describe("Common", () => {
     // Should have al least one social network
     page.get(".social-networks").should("have.length.gte", 1);
   });
-
-  it("initialize with default theme", () => {
-    const page = cy.visit("/");
-
-    page.getAllLocalStorage().then((storage) => {
-      const local = storage[Cypress.config().baseUrl] ?? false;
-
-      if (local) {
-        expect(local).to.have.property("theme");
-      }
-    });
-  });
 });
 
 describe("Mobile", () => {
   beforeEach(() => {
     cy.viewport("samsung-s10");
-  });
-
-  it("can toggle theme on mobile", () => {
-    cy.visit("/");
-
-    cy.get("#open-menu").click();
-    cy.get("#mobile-theme-switcher").click();
-
-    // Remove dark class
-    cy.get("body").should("have.class", `${bodyClass} overflow-hidden`);
-    cy.get("#mobile-theme-switcher").click();
-
-    // Trigger dark class
-    cy.get("body").should("have.class", bodyClass);
-    cy.get("#close-menu").click();
   });
 
   it("can toggle mobile menu", () => {

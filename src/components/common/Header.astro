@@ -81,23 +81,6 @@ const pathname = url.pathname;
       </li>
     </ul>
   </nav>
-
-  <div class="hidden h-14 lg:flex justify-center absolute right-8">
-    <button
-      id="desktop-theme-switcher"
-      class="theme-switcher p-1 px-4 active:bg-gray-200 rounded-md bg-zinc-900 text-white dark:bg-blue-800">
-      <Icon
-        class="block dark:hidden"
-        name="material-symbols:brightness-4-outline"
-        size={32}
-      />
-      <Icon
-        class="hidden dark:block"
-        name="material-symbols:brightness-5-outline"
-        size={32}
-      />
-    </button>
-  </div>
 </header>
 
 <aside
@@ -131,27 +114,6 @@ const pathname = url.pathname;
           <a href="/">Contacto</a>
         </li>
       </ul>
-    </div>
-
-    <div class="flex pb-4">
-      <button
-        id="mobile-theme-switcher"
-        class="theme-switcher w-full p-2 active:bg-zinc-900 dark:active:bg-blue-900 rounded-md bg-zinc-800 text-white dark:bg-blue-800">
-        <div class="hidden justify-between items-center dark:flex">
-          <span> Claro</span>
-          <Icon
-            name="material-symbols:brightness-5-outline"
-            size={24}
-          />
-        </div>
-        <div class="flex justify-between items-center dark:hidden">
-          <span> Oscuro</span>
-          <Icon
-            name="material-symbols:brightness-4-outline"
-            size={24}
-          />
-        </div>
-      </button>
     </div>
   </section>
 </aside>

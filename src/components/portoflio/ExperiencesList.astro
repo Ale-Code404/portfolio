@@ -7,10 +7,6 @@ interface Props {
 }
 
 const { experiences }: Props = Astro.props;
-
-const isLastExperience = (index: number) => {
-  return index === experiences.length - 1;
-};
 ---
 
 <ul
@@ -33,7 +29,7 @@ const isLastExperience = (index: number) => {
           description={experience.description}
           challenges={experience.challenges}
           stack={experience.stack}
-          isOpen={isLastExperience(index)}
+          isOpen={index === 0}
         />
       </li>
     ))

@@ -17,8 +17,14 @@ const {
 ---
 
 <div
-  class="collapse collapse-arrow bg-base-100 border-base-300 border"
-  class:collapse-open={isOpen}>
+  class:list={[
+    "collapse",
+    "collapse-arrow",
+    "bg-base-100",
+    "border-base-300",
+    "border",
+    { "collapse-open": isOpen },
+  ]}>
   <input type="checkbox" />
   <div class="collapse-title">
     <h3 class="text-xl font-bold">{company}</h3>
