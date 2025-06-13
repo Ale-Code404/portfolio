@@ -3,6 +3,7 @@
 interface ImportMetaEnv {
   readonly TEMPLATED_API_URL: string;
   readonly TEMPLATED_API_KEY: string;
+  readonly TEMPLATED_TEMPLATE_PROJECT: string;
   readonly WORK_STARTS_YEAR: int;
 }
 

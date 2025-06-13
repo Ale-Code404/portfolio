@@ -36,9 +36,10 @@ const projects = defineCollection({
     ),
   }),
   loader: projectsLoader({
-    template: {
-      image: import.meta.env.TEMPLATED_API_URL,
+    image: {
+      api: import.meta.env.TEMPLATED_API_URL,
       token: import.meta.env.TEMPLATED_API_KEY,
+      template: import.meta.env.TEMPLATED_TEMPLATE_PROJECT,
     },
   }),
 });

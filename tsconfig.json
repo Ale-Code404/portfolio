@@ -16,6 +16,9 @@
       "@content/*": [
         "src/data/*"
       ],
+      "@integrations/*": [
+        "src/integrations/*"
+      ]
     }
   }
 }
