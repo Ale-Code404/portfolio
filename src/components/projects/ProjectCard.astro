@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
@@ -41,8 +41,7 @@ const {
             <a
               class="flex-grow rounded-md outline outline-1 p-2 text-center cursor-pointer"
               href={action.url}
-              class={action.button_style}
-            >
+              class={action.button_style}>
               {action.title}
             </a>
           ))
