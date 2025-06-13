@@ -24,7 +24,7 @@ const containerClass =
 <section class={containerClass}>
   {
     articles.map((article) => (
-      <a href={`/articles/${article.slug}`}>
+      <a href={`/articles/${article.id}`}>
         <Item
           title={article.data.title}
           description={article.data.description}

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/ArticleLayout.astro
 title: Como implementar cache busting en Laravel
 author: Alejandro Acosta
 description: El cache busting es una técnica que permite a los navegadores recargar los archivos estáticos de manera dinámica, lo que reduce considerablemente el tiempo de carga de páginas web.

@@ -4,28 +4,28 @@ import BaseLayout from "./Layout.astro";
 import Markdown from "@components/common/Markdown.astro";
 import { Image } from "astro:assets";
 
-const { frontmatter } = Astro.props;
+const { article } = Astro.props;
 ---
 
 <BaseLayout
-  title={frontmatter.title}
-  description={frontmatter.description}>
+  title={article.title}
+  description={article.description}>
   <section class="pt-20 flex flex-col gap-6">
-    <h1 class="text-5xl font-bold">{frontmatter.title}</h1>
+    <h1 class="text-5xl font-bold">{article.title}</h1>
     <div class="flex justify-between">
       <div class="flex gap-2">
         <Icon
           name="material-symbols:person"
           size={24}
         />
-        <span class="author">{frontmatter.author}</span>
+        <span class="author">{article.author}</span>
       </div>
-      <span class="date">{frontmatter.date.slice(0, 10)}</span>
+      <span class="date">{article.date.slice(0, 10)}</span>
     </div>
 
     <Image
-      src={frontmatter.image.src}
-      alt={frontmatter.image.alt}
+      src={article.image.src}
+      alt={article.image.alt}
       width={1200}
       height={300}
       loading="eager"

@@ -1,17 +1,62 @@
 ---
-import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import Markdown from "@components/common/Markdown.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("articles");
+  const articles = await getCollection("articles");
 
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
-<Content />
+<Layout
+  title={article.data.title}
+  description={article.data.description}>
+  <section class="pt-20 flex flex-col gap-6">
+    <h1 class="text-5xl font-bold">{article.data.title}</h1>
+    <div class="flex justify-between">
+      <div class="flex gap-2">
+        <Icon
+          name="material-symbols:person"
+          size={24}
+        />
+        <span class="author">{article.data.author}</span>
+      </div>
+      <span class="date">{formatDate(article.data.date)}</span>
+    </div>
+
+    <Image
+      src={article.data.image.src}
+      alt={article.data.image.alt}
+      width={1200}
+      height={300}
+      loading="eager"
+      class="aspect-video w-full object-cover rounded-lg"
+    />
+
+    <!-- Article content -->
+    <div class="pb-16">
+      <Markdown>
+        <Content />
+      </Markdown>
+    </div>
+  </section>
+</Layout>

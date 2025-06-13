@@ -14,7 +14,7 @@
         "src/layouts/*"
       ],
       "@content/*": [
-        "src/content/*"
+        "src/data/*"
       ],
     }
   }

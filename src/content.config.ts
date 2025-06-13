@@ -1,7 +1,12 @@
 import { z, defineCollection, reference } from "astro:content";
+import { projectsLoader } from "./data/loaders/projects";
+import { glob } from "astro/loaders";
 
 const experiences = defineCollection({
-  type: "data",
+  loader: glob({
+    base: "./src/data/experiences",
+    pattern: "*.json",
+  }),
   schema: z.object({
     company: z.string(),
     position: z.string(),
@@ -16,7 +21,6 @@ const experiences = defineCollection({
 });
 
 const projects = defineCollection({
-  type: "data",
   schema: z.object({
     title: z.string(),
     codename: z.string(),
@@ -31,10 +35,19 @@ const projects = defineCollection({
       })
     ),
   }),
+  loader: projectsLoader({
+    template: {
+      image: import.meta.env.TEMPLATED_API_URL,
+      token: import.meta.env.TEMPLATED_API_KEY,
+    },
+  }),
 });
 
 const articles = defineCollection({
-  type: "content",
+  loader: glob({
+    base: "./src/data/articles",
+    pattern: "*.md",
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
